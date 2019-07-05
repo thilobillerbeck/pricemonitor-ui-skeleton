@@ -12,7 +12,7 @@ To ease the development process it only contains the necessary bootstrap code:
     
 When starting to develop a Pricemonitor module you use this project as a starting point.
 
-:pencil: This repository only contains the seed project. When developing a specific module you clone/copy this repo and adapt it accordingly, see `utils/create-new-pricemonitor-module.sh`.
+:pencil: This repository only contains the seed project. When developing a specific module you clone/copy this repo and adapt it accordingly, see [`utils/create-new-pricemonitor-module.sh`](utils/create-new-pricemonitor-module.sh).
 
 ## Instructions
 :warning: Warning: The `lib` and `example` code is compiled separately.

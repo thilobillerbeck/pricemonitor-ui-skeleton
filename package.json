@@ -4,7 +4,8 @@
   "scripts": {
     "dev:example": "webpack-dev-server --config example/webpack.config.js --mode=development --progress --open",
     "dev:lib": "webpack-cli --watch --config lib/webpack.config.js --mode=development --progress",
-    "build:lib": "webpack-cli --config lib/webpack.config.js --mode=production"
+    "build:lib": "webpack-cli --config lib/webpack.config.js --mode=production",
+    "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
     "jquery": "2.1.4",
