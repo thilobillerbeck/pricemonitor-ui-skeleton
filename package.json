@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "jquery": "2.1.4",
-    "pricemonitor-core": "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.531.tar.gz",
-    "pricemonitor-share": "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.531.tar.gz"
+    "pricemonitor-core": "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.537.tar.gz",
+    "pricemonitor-share": "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.537.tar.gz"
   },
   "devDependencies": {
     "@types/angular": "1.6.41",

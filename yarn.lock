@@ -3043,9 +3043,9 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
-"pricemonitor-core@https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.531.tar.gz":
+"pricemonitor-core@https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.537.tar.gz":
   version "1.0.0"
-  resolved "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.531.tar.gz#111255baacc50b45943eecd19387c95c4bd8898c"
+  resolved "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.537.tar.gz#a6147a39158fe83de2821f8e72ffd78f269c8ab3"
   dependencies:
     angular-pan-zoom "1.0.18"
     angular-ui-bootstrap "1.2.0"
@@ -3056,9 +3056,9 @@ pretty-error@^2.0.2:
     ng-tags-input "2.3.0"
     ui-select "0.19.8"
 
-"pricemonitor-share@https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.531.tar.gz":
+"pricemonitor-share@https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.537.tar.gz":
   version "1.0.0"
-  resolved "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.531.tar.gz#3ca1d4e2d9a62904da6dc19b8b4e8b6f3b374efd"
+  resolved "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.537.tar.gz#ece044b97f8c33d3ebf2350a214ec3152a333145"
 
 private@~0.1.5:
   version "0.1.8"
