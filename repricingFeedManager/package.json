@@ -1,0 +1,36 @@
+{
+  "name": "pricemonitor-skeleton",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:example": "webpack-dev-server --config example/webpack.config.js --mode=development --progress --open",
+    "dev:lib": "webpack-cli --watch --config lib/webpack.config.js --mode=development --progress",
+    "build:lib": "webpack-cli --config lib/webpack.config.js --mode=production",
+    "clean": "rm -rf dist node_modules"
+  },
+  "dependencies": {
+    "jquery": "2.1.4",
+    "pricemonitor-core": "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-core.v0.0.537.tar.gz",
+    "pricemonitor-share": "https://s3-eu-west-1.amazonaws.com/patagona.ui.assets/packages/pricemonitor-share.v0.0.537.tar.gz"
+  },
+  "devDependencies": {
+    "@types/angular": "1.6.41",
+    "@types/node": "12.0.2",
+    "auto-ngtemplate-loader": "1.3.2",
+    "css-loader": "2.1.1",
+    "html-webpack-plugin": "3.2.0",
+    "less": "3.9.0",
+    "less-loader": "5.0.0",
+    "mini-css-extract-plugin": "0.6.0",
+    "ngtemplate-loader": "2.0.1",
+    "raw-loader": "2.0.0",
+    "style-loader": "0.23.1",
+    "ts-loader": "6.0.1",
+    "typescript": "3.4.5",
+    "webpack": "4.35.2",
+    "webpack-auto-inject-version": "1.2.2",
+    "webpack-bundle-analyzer": "3.3.2",
+    "webpack-cli": "3.3.5",
+    "webpack-dev-server": "3.7.2",
+    "webpack-plugin-hash-output": "3.2.1"
+  }
+}

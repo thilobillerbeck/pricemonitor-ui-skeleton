@@ -12,7 +12,7 @@ PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. 
 MODULE_NAME="$1"
 
 if [ -z "$MODULE_NAME" ]; then
-  printmsg subk "New module name (eg. 'pricemonitor.feed'):\n"
+  printmsgsubl subk "New module name (eg. 'pricemonitor.feed'):\n"
   read -r -p "> " -e MODULE_NAME
   echo
 fi

@@ -1,0 +1,135 @@
+@import "~pricemonitor-core/theme/theme-v2/variables";
+
+button {
+    &.button-full-width {
+        background: none;
+        border: 1px dotted @dark-blue-2;
+        padding: @base-unit-normal;
+        width: 100%;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.feed-container {
+    margin: 0.5em 0;
+    border: 1px dotted @color-border;
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-rows: auto;
+    > .feed-container-sidebar {
+      background-color: @color-back-2;
+        > .feed-container-sidebar-element {
+            background-color: @color-8;
+            padding: @base-unit-small;
+            font-weight: bold;
+            cursor: pointer;
+            &.active {
+                background-color: @color-back-3;
+            }
+            &:hover {
+                background-color: @color-back-4;
+            }
+            &.add-feed {
+                background-color: transparent;
+            }
+        }
+    }
+    > .feed-container-element {
+        position: relative;
+        padding: @base-unit-small;
+        .settings-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: ". .";
+        }
+    }
+    .myGrid {
+        width: 100%;
+    }
+}
+
+.settings-divider {
+    width: 50%;
+}
+
+.settings-row {
+    border: 1px solid @color-border;
+    display: flex;
+    overflow-x: scroll;
+    flex-flow: row;
+    .settings-row-item {
+        border-right: 1px solid @color-border;
+        .settings-row-title {
+            border-bottom: 1px solid @color-border;
+            text-align: center;
+            margin: 0;
+            padding: @base-unit-small;
+        }
+        .settings-row-options {
+            background-color: @color-7-light;
+            color: @color-8;
+            text-align: center;
+            margin: 0;
+            padding: @base-unit-smallest;
+            border-bottom: 1px solid @color-border;
+            i {
+                padding: @base-unit-small;
+                cursor: pointer;
+            }
+        }
+        .settings-row-input {
+            text-align: center;
+            margin: 0;
+            padding: @base-unit-small;
+            border-bottom: 1px solid @color-border;
+        }
+        select {
+            text-align: center;
+            border-bottom: 1px solid @color-border;
+        }
+        input {
+            margin-right: 0;
+        }
+    }
+}
+
+table.preview {
+    overflow-x: scroll;
+    text-align: center;
+    th {
+        text-align: center;
+        background-color: @color-7-light;
+        padding: 1em;
+        color: @color-8;
+    }
+    tr {
+        &:nth-child(1) {
+            td {
+                background-color: @color-back-3;
+            }
+        }
+    }
+    td {
+        padding: 0.8em;
+        border: 1px solid lightgray;
+    }
+}
+
+.info-box {
+    border: 1px solid @color-border;
+    padding: @base-unit-smaller;
+}
+
+.top-options {
+    position: absolute;
+    text-align: right;
+    right: 0;
+    top: 0;
+    padding: @base-unit-small;
+    i {
+        cursor: pointer;
+        padding: @base-unit-small;
+    }
+}

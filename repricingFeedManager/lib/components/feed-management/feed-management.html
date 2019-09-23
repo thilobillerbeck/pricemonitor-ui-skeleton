@@ -1,0 +1,104 @@
+<h2>Feed-Management</h2>
+<p>Here you can create and manage feeds.</p>
+
+<button ng-if="!$ctrl.feeds" class="button-full-width">+ Add RepricingfeedService</button>
+
+<feed-element-container-component></feed-element-container-component>
+
+<div ng-if="$ctrl.feeds" class="feed-container">
+    <div class="feed-container-sidebar">
+        <div ng-repeat="feed in $ctrl.feeds" ng-class="{
+        'feed-container-sidebar-element': true,
+        'active': $ctrl.selectedFeed == $index
+        }" ng-click="$ctrl.changeDataset($index)" >
+            <i ng-click="$ctrl.deleteFeed($index)" class="fa fa-trash" aria-hidden="true"></i> {{ feed.name }}
+        </div>
+        <div class="feed-container-sidebar-element add-feed">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add Feed
+        </div>
+    </div>
+    <div class="feed-container-element">
+        <div class="top-options">
+            <i ng-click="$ctrl.reload()" class="fa fa-refresh" aria-hidden="true"></i>
+            <i class="fa fa-floppy-o" aria-hidden="true" ng-click="$ctrl.saveFeed($ctrl.selectedFeed)"></i>
+        </div>
+
+        <div class="settings-grid-container">
+            <div class="settings-grid-container-right">
+                <p>Feed Name: <input type="text" placeholder="Name" ng-model="$ctrl.feeds[$ctrl.selectedFeed].name"><br></p>
+                <p>Feed Type: <input type="text" placeholder="Type" ng-model="$ctrl.feeds[$ctrl.selectedFeed].format"><br></p>
+                <p>CSV Column Separator: <input type="text" placeholder="" ng-model="$ctrl.feeds[$ctrl.selectedFeed].csvSeparator"><br></p>
+
+                CSV Decimal Separator: <select ng-model="$ctrl.feeds[$ctrl.selectedFeed].csvDecimalSeparator">
+                    <option value=".">ENGLISH (.)</option>
+                    <option value=",">GERMAN (,)</option>
+                </select>
+                <br>
+            </div>
+            <div>
+                <p><i class="fa fa-clipboard" aria-hidden="true"></i> <b>Feed ID:</b> {{ $ctrl.feeds[$ctrl.selectedFeed].id }} </p>
+                <p><i class="fa fa-clipboard" aria-hidden="true"></i> <b>URL:</b> {{ $ctrl.feeds[$ctrl.selectedFeed].url }} </p>
+                <p><i class="fa fa-clipboard" aria-hidden="true"></i> <b>Data-URL:</b> {{ $ctrl.feeds[$ctrl.selectedFeed].deltaUrl }}</p>
+                <p><b>Last Request:</b> {{ $ctrl.feeds[$ctrl.selectedFeed].lastAccessed | date }} </p>
+                <p><b>Last Delete:</b> {{ $ctrl.feeds[$ctrl.selectedFeed].lastDeletion | date  }}  </p>
+            </div>
+        </div>
+        <hr class="settings-divider">
+        <p>Create your CSV columns. You can add, delete and remove columns. ...</p>
+
+        <div class="settings-row">
+            <div class="settings-row-item" ng-repeat="field in $ctrl.feeds[$ctrl.selectedFeed].fields">
+                <p class="settings-row-title">{{ field.label }}</p>
+                <div class="settings-row-options">
+                    <span ng-click="$ctrl.tableMoveLeft($ctrl.selectedFeed, $index)"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                    <span ng-click="$ctrl.tableDelete($ctrl.selectedFeed, $index)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    <span ng-click="$ctrl.tableMoveRight($ctrl.selectedFeed, $index)"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="settings-row-input">
+                    <select ng-model="field.name" >
+                        <option value="" disabled selected>Default</option>
+                        <option value="Gtin">Gtin</option>
+                        <option value="ProductIdentifier">ProductIdentifier</option>
+                        <option value="ProductName">ProductName</option>
+                        <option value="OldPosition">OldPosition</option>
+                        <option value="NewPosition">NewPosition</option>
+                        <option value="OldPrice">OldPrice</option>
+                        <option value="NewPrice">NewPrice</option>
+                        <option value="OldDeliveryCosts">OldDeliveryCosts</option>
+                        <option value="NewDeliveryCosts">NewDeliveryCosts</option>
+                        <option value="ReferencePrice">ReferencePrice</option>
+                        <option value="Timestamp">Timestamp</option>
+                        <option value="tag">Tag</option>
+                        <option value="formula">Formula</option>
+                        <option value="offer">Offer</option>
+                    </select>
+                </div>
+                <div class="settings-row-input">
+                    <input placeholder="SUM(col1, col2)" ng-model="field.name">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="info-box">
+            Information about the formulas<br>
+            Available fields: ...
+        </div>
+        <br>
+        <!--
+        <p>This is the preview of your feed:</p>
+        <table class="preview">
+            <tr>
+                <th ng-repeat="field in $ctrl.feeds[$ctrl.selectedFeed].fields">{{ field.label }}</th>
+            </tr>
+            <tr>
+                <td ng-repeat="field in $ctrl.feeds[$ctrl.selectedFeed].fields">Lorem Ipsum</td>
+            </tr>
+            <tr>
+                <td ng-repeat="field in $ctrl.feeds[$ctrl.selectedFeed].fields">Lorem Ipsum</td>
+            </tr>
+            <tr>
+                <td ng-repeat="field in $ctrl.feeds[$ctrl.selectedFeed].fields">Lorem Ipsum</td>
+            </tr>
+        </table> -->
+    </div>
+</div>
