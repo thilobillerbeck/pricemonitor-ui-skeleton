@@ -80,8 +80,20 @@ export class FeedManagementController implements angular.IController {
   }
 
   public addFeed() {
-    this.repricingFeedService.addFeed("a", this.feeds[0]).then((res) => {
+    this.repricingFeedService.addFeed(this.feeds[0].contractId, {
+      "name": "NewService",
+      "format": "csv",
+      "csvDecimalSeparator": ".",
+      "csvSeparator": ",",
+      "fields": [],
+      "version": 1,
+      "id": Math.random().toString(36).substring(7),
+      "contractId": Math.random().toString(36).substring(7),
+      "url": "http://test.com",
+      "deltaUrl": "http://data.test.com"
+    }).then((res) => {
       console.log(res)
+      this.getFeeds()
     });
   }
 

@@ -13,7 +13,7 @@
         }" ng-click="$ctrl.changeDataset($index)" >
             <i ng-click="$ctrl.deleteFeed($index)" class="fa fa-trash" aria-hidden="true"></i> {{ feed.name }}
         </div>
-        <div class="feed-container-sidebar-element add-feed">
+        <div ng-click="$ctrl.addFeed()" class="feed-container-sidebar-element add-feed">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Feed
         </div>
     </div>
