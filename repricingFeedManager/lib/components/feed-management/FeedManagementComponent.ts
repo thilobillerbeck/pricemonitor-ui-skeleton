@@ -97,6 +97,16 @@ export class FeedManagementController implements angular.IController {
     });
   }
 
+  public copyStringToClipboard(str) {
+    const elToCopy = document.createElement('textarea');
+    elToCopy.value = str;
+    elToCopy.setAttribute('readonly', '');
+    document.body.appendChild(elToCopy);
+    elToCopy.select();
+    document.execCommand('copy');
+    document.body.removeChild(elToCopy);
+  }
+
   constructor(
       private repricingFeedService:RepricingFeedService
   ) {
