@@ -1,6 +1,5 @@
 import * as angular from 'angular';
 import * as Promise from 'bluebird';
-import {IPromise} from "angular";
 
 interface FeedSettings {
     /**
