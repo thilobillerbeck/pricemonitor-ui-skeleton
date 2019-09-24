@@ -57,21 +57,35 @@ export class FeedManagementController implements angular.IController {
    * @param feedId UI-Identifier for Feed
    */
   public saveFeed(feedId:number) {
-    this.repricingFeedService.setFeed(this.feeds[feedId].contractId, this.feeds[feedId].id, this.feeds[feedId])
-        .then((res) => console.log(res))
+    if(this.validateFeed(feedId)) {
+      this.repricingFeedService.setFeed(this.feeds[feedId].contractId, this.feeds[feedId].id, this.feeds[feedId])
+          .then((res) => console.log(res))
+    } else {
+      console.log("Feed invalid!")
+    }
   }
 
+  /**
+   * Get feeds from API
+   */
   public getFeeds() {
     this.repricingFeedService.getFeeds().then((res) => {
       this.feeds = res;
     });
   }
 
+  /**
+   * reload feeds
+   */
   public reload() {
     console.log("RELOAD")
     this.getFeeds();
   }
 
+  /**
+   * Delete a feed from API
+   * @param feedId frontend ID of feed
+   */
   public deleteFeed(feedId:number) {
     this.repricingFeedService.deleteFeed(this.feeds[feedId].contractId, this.feeds[feedId].id).then((res) => {
       console.log(res)
@@ -79,7 +93,25 @@ export class FeedManagementController implements angular.IController {
     });
   }
 
+  /**
+   * Function which validates a given feed before processing
+   * @param feedId feed position in the UI
+   * @return true when feed is valid
+   */
+  private validateFeed(feedId:number): boolean {
+    return (this.feeds[feedId].name
+        && (
+            (this.feeds[feedId].csvDecimalSeparator == "." && this.feeds[feedId].csvSeparator != ".")
+            || (this.feeds[feedId].csvDecimalSeparator == "," && this.feeds[feedId].csvSeparator != ",")
+        ))
+  }
+
+  /**
+   * Add a feed (currently with hard coded template)
+   */
   public addFeed() {
+    /* feedSettings is currently a hard coded template, because I don't know how
+    feed creation works on the API side */
     this.repricingFeedService.addFeed(this.feeds[0].contractId, {
       "name": "NewService",
       "format": "csv",
@@ -89,14 +121,18 @@ export class FeedManagementController implements angular.IController {
       "version": 1,
       "id": Math.random().toString(36).substring(7),
       "contractId": Math.random().toString(36).substring(7),
-      "url": "http://test.com",
-      "deltaUrl": "http://data.test.com"
+      "url": "",
+      "deltaUrl": ""
     }).then((res) => {
       console.log(res)
       this.getFeeds()
     });
   }
 
+  /**
+   * helper function to copy a given string to clipboard
+   * @param str string to copy
+   */
   public copyStringToClipboard(str) {
     const elToCopy = document.createElement('textarea');
     elToCopy.value = str;
